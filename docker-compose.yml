@@ -8,7 +8,6 @@ services:
     image: postgres
     restart: always
     environment:
-     - DATABASE_HOST=127.0.0.1
      - POSTGRES_USER=postgres
      - POSTGRES_PASSWORD=docker
      - POSTGRES_PORT=5432
@@ -31,16 +30,10 @@ services:
     ports:
       - '8080:8080'
     environment:
-      - NODE_ENV=development
-      - DATABASE_HOST=db
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=docker
-      - POSTGRES_PORT=5432
-      - POSTGRES_DB=dawnbreaker
+      - NODE_ENV=staging
+      - CONNECTION=postgres://postgres:docker@db:5432/dawnbreaker
     volumes:
-      - type: bind
-        source: ./dawnbreaker-dkp-backend/
-        target: /app
+      - .:/src
     command: npm start
 
   client:
@@ -53,3 +46,5 @@ services:
       - type: bind
         source: ./dawnbreaker-dkp-frontend/src
         target: /app/src
+
+
