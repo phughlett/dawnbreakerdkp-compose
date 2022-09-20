@@ -38,9 +38,7 @@ services:
       - POSTGRES_PORT=5432
       - POSTGRES_DB=dawnbreaker
     volumes:
-      - type: bind
-        source: /var/lib/dawnbreaker-dkp-backend/
-        target: /app
+      - .:/src
     command: npm start
 
   client:
