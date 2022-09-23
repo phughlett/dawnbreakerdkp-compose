@@ -47,4 +47,8 @@ services:
         source: ./dawnbreaker-dkp-frontend/src
         target: /app/src
 
+networks:
+  local:
+    driver: bridge
+
 
