@@ -41,7 +41,9 @@ services:
     depends_on:
       - 'db'
     ports:
-      - '3000:3000'
+      - '80:80'
+    environment:
+      - API=http://52.20.246.180:8080/
     volumes:
       - type: bind
         source: ./dawnbreaker-dkp-frontend/src
