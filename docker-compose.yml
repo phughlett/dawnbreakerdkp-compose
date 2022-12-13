@@ -41,7 +41,7 @@ services:
       - db
     ports:
       - '80:80'
-      - '3000:3000'
+      - '443:443'
     environment:
       - API=http://localhost:8080
 
