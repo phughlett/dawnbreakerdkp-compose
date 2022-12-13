@@ -38,7 +38,7 @@ services:
   client:
     build: dawnbreaker-dkp-frontend/
     depends_on:
-      - 'db'
+      - db
     ports:
       - '80:80'
       - '3000:3000'
